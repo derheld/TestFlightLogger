@@ -3,6 +3,7 @@
 //  TestFlightLogger
 //
 //  Created by Alex Billingsley on 10/28/12.
+//  Modified by Edgar Ebel on 08/12/2014.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 //  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -47,8 +48,8 @@
 }
 
 - (void)logMessage:(DDLogMessage *)logMessage {
-    NSString *logMsg = (formatter ? [formatter formatLogMessage:logMessage] : logMessage->logMsg);
-    
+	NSString *logMsg = (_logFormatter ? [_logFormatter formatLogMessage:logMessage] : logMessage->_message);
+	
     if (logMsg) {
         TFLog(@"%@", logMsg);
     }
